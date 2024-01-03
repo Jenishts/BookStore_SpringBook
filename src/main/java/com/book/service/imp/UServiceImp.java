@@ -24,7 +24,6 @@ public class UServiceImp implements UService {
     public User saveUser(User user){
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRole(Role.USER);
-        user.setLocalDateTime(LocalDateTime.now());
         return userRepo.save(user);
     }
 
