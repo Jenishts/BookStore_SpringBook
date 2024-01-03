@@ -24,7 +24,8 @@ public class SecurityConfiguration {
 
     private static final String[] ADMIN_WHITE_LIST_URLS={
 
-            "/product/**",
+
+            "/order/**"
 
     };
 

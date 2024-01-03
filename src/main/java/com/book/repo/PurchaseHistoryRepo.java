@@ -13,6 +13,6 @@ import java.util.List;
 public interface PurchaseHistoryRepo extends JpaRepository<PurchaseHistory, Long> {
 
 
-    @Query("select b.title, ph.price, ph.localDateTime from PurchaseHistory ph left join Book b on b.id = ph.bookId where ph.userId = :userId")
+    @Query("select b.title as title, b.price as price, ph.localDateTime as localDateTime from PurchaseHistory ph left join Book b on b.id = ph.bookId where ph.userId = :userId")
     List<IPurchaseItem> findAllByPurchaseOfUser(@Param("userId") Long userId);
 }

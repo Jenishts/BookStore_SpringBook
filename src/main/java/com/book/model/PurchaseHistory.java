@@ -1,12 +1,14 @@
 package com.book.model;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
 @Data
 @Entity
+
 @Table(name = "Purchased_Order")
 public class PurchaseHistory {
 
@@ -23,9 +25,6 @@ public class PurchaseHistory {
 
     @Column(name = "Book_Id", nullable = false)
     private Long bookId;
-
-    @Column(name = "Price", nullable = false)
-    private Double price;
 
     @Column(name = "Order_time", nullable = false)
     private LocalDateTime localDateTime;
