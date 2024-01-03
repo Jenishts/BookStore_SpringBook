@@ -16,6 +16,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfiguration {
     private String[] WHITE_LISTED_URLS={
             "/api/auth/**",
+            "/product"
 
 
 
@@ -23,10 +24,8 @@ public class SecurityConfiguration {
 
     private static final String[] ADMIN_WHITE_LIST_URLS={
 
-            "/auth/admin",
-            "/product/add",
-            "/product/delete/**",
-            "/product/list"
+            "/product/**",
+
     };
 
     private static final String[] USER_WHITE_LIST_URLS={

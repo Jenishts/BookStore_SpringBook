@@ -6,6 +6,7 @@ import com.book.service.BService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -18,6 +19,8 @@ public class BServiceImp implements BService {
     @Override
 
     public Book saveBook(Book book){
+        book.setLocalDateTime(LocalDateTime.now());
+
         return bookRepo.save(book);
     }
 
