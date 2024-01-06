@@ -20,7 +20,10 @@ import java.util.function.Function;
 public class JwtService {
 
     @Value("${jwt.key}")
-    private final static String SECRET_Key="655368566D597133743677397A24432646294A404E635266546A576E5A723475";
+    private static String SECRET_Key;
+
+    @Value("${jwt.timeout}")
+    private static Long JWT_Token_Expire;
 
 
     public String extractUserEmail(String jwtToken) {
@@ -47,7 +50,7 @@ public class JwtService {
 
     public String generateToken(Map<String, Object> extractClaims, UserDetails userDetails){
         return Jwts.builder().setClaims(extractClaims).setSubject(userDetails.getUsername())
-                .setIssuedAt(new Date(System.currentTimeMillis())).setExpiration(new Date(System.currentTimeMillis() + 86400000))
+                .setIssuedAt(new Date(System.currentTimeMillis())).setExpiration(new Date(System.currentTimeMillis() + JWT_Token_Expire))
                 .signWith(getSignInKey(), SignatureAlgorithm.HS256).compact();
     }
 
